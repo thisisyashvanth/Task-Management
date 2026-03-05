@@ -1,5 +1,13 @@
 from pydantic import BaseModel
 
+
+class deleteResponse(BaseModel):
+    msg:str
+
+class deleteRequest(BaseModel):
+    id:int
+    
+
 class TaskResponse(BaseModel):
     id: int
     title: str
