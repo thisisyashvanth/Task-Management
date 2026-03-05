@@ -3,26 +3,26 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
+        stage('Check Python') {
             steps {
-                git branch: 'develop',
-                url: 'https://github.com/thisisyashvanth/Task-Management.git'
+                bat 'python --version'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                bat '"C:\\Users\\YashvanthVijayabalaj\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip install -r requirements.txt'
+                bat 'python -m pip install --upgrade pip'
+                bat 'python -m pip install -r requirements.txt'
             }
         }
 
-        stage('Python Test') {
+        stage('Run Python Test') {
             steps {
-                bat '"C:\\Users\\YashvanthVijayabalaj\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -c "print(\'Jenkins Python works\')"'
+                bat 'python -c "print(\'Jenkins Python works\')"'
             }
         }
 
-        stage('Run App Test') {
+        stage('Run App Tests') {
             steps {
                 bat 'python -m pytest'
             }
