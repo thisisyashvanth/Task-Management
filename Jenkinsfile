@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout Code') {
             steps {
                 git branch: 'develop',
@@ -11,7 +12,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'pip install -r requirements.txt'
+                bat 'python -m pip install -r requirements.txt'
             }
         }
 
@@ -20,5 +21,6 @@ pipeline {
                 bat 'python -m pytest'
             }
         }
+
     }
 }
