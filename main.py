@@ -1,13 +1,9 @@
-from contextlib import asynccontextmanager
-
 from fastapi import FastAPI
-from sqlalchemy import engine
+from core.database import Base, engine
+from api.routes import tasks
 
-from core.database import Base
+Base.metadata.create_all(bind=engine)
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    Base.metadata.create_all(bind=engine)
-    yield
+app = FastAPI(title="Task Management API")
 
-app = FastAPI(title="Task App")
+app.include_router(tasks.router)
