@@ -8,6 +8,7 @@ class TodoRequest(BaseModel):
 
 
 class TodoResponse(BaseModel):
+    pass
 
 class deleteResponse(BaseModel):
     msg:str

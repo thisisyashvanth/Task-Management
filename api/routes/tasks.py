@@ -1,14 +1,14 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from core.deps import get_db
-from models.Tasks import Task
+from models.Tasks import Tasks
 
 router = APIRouter(prefix="/tasks", tags=["Tasks"])
 
 @router.post("/")
 def create_task(title: str, description: str, db: Session = Depends(get_db)):
 
-    new_task = Task(
+    new_task = Tasks(
         title=title,
         description=description
     )
