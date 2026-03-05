@@ -7,3 +7,12 @@ class deleteResponse(BaseModel):
 class deleteRequest(BaseModel):
     id:int
     
+
+class TaskResponse(BaseModel):
+    id: int
+    title: str
+    description: str
+    is_completed: bool
+
+    class Config:
+        from_attributes = True
