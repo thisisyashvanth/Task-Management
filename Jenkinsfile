@@ -5,6 +5,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
+                git branch: 'develop',
                 git 'https://github.com/thisisyashvanth/Task-Management'
             }
         }
