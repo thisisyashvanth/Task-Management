@@ -33,10 +33,10 @@ pipeline {
             }
         }
         
-        // stage('Run FastAPI') {
-        //     steps {
-        //         bat 'uvicorn main:app --host 0.0.0.0 --port 8000'
-        //     }
-        // }
+        stage('Run FastAPI') {
+            steps {
+                bat 'uvicorn main:app --host 0.0.0.0 --port 8000'
+            }
+        }
     }
 }
