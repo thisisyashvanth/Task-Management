@@ -4,3 +4,4 @@ pymysql
 
 sqlalchemy
 dotenv
+cryptography
