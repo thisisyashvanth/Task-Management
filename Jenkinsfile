@@ -3,30 +3,16 @@ pipeline {
 
     stages {
 
-        stage('Check Python') {
-            steps {
-                bat 'python --version'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install --upgrade pip'
-                bat 'python -m pip install -r requirements.txt'
+                sh 'pip install -r requirements.txt'
             }
         }
-
-        stage('Run Python Test') {
+        
+        stage('Run FastAPI') {
             steps {
-                bat 'python -c "print(\'Jenkins Python works\')"'
+                sh 'uvicorn main:app --host 0.0.0.0 --port 8000'
             }
         }
-
-        stage('Run App Tests') {
-            steps {
-                bat 'python -m pytest'
-            }
-        }
-
     }
 }
