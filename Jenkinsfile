@@ -19,7 +19,7 @@ pipeline {
             steps {
                 bat '''
                 echo DB_USER=root > .env
-                echo DB_PASSWORD=this1sMeY@sh >> .env
+                echo DB_PASSWORD=ismail >> .env
                 echo DB_HOST=localhost >> .env
                 echo DB_PORT=3306 >> .env
                 echo DB_NAME=tasks >> .env
